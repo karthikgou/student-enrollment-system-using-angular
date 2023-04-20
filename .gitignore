@@ -1,0 +1,44 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/student-enrollment-system/dist
+/student-enrollment-system/tmp
+/student-enrollment-system/out-tsc
+/student-enrollment-system/bazel-out
+
+# Node
+student-enrollment-system/node_modules
+student-enrollment-system/npm-debug.log
+student-enrollment-system/yarn-error.log
+
+# IDEs and editors
+student-enrollment-system/.idea/
+student-enrollment-system/.project
+student-enrollment-system/.classpath
+student-enrollment-system/.c9/
+student-enrollment-system/*.launch
+student-enrollment-system/.settings/
+student-enrollment-system/*.sublime-workspace
+
+# Visual Studio Code
+student-enrollment-system/.vscode/*
+!student-enrollment-system/.vscode/settings.json
+!student-enrollment-system/.vscode/tasks.json
+!student-enrollment-system/.vscode/launch.json
+!student-enrollment-system/.vscode/extensions.json
+student-enrollment-system/.history/*
+
+# Miscellaneous
+/student-enrollment-system/.angular/cache
+student-enrollment-system/.sass-cache/
+/student-enrollment-system/connect.lock
+/student-enrollment-system/coverage
+/student-enrollment-system/libpeerconnection.log
+student-enrollment-system/testem.log
+/student-enrollment-system/typings
+
+# System files
+student-enrollment-system/.DS_Store
+student-enrollment-system/Thumbs.db
+
+student-enrollment-system/Backend/node_modules/
