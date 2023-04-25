@@ -1,0 +1,31 @@
+mat-sidenav{
+  background-color:aliceblue;
+  width: 200px;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+.mat-list-item.active-link {
+  background-color: #ccc;
+}
+
+.mat-list-item {
+  font-size: 16px;
+  color: #333;
+}
+
+.mat-list-item:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.toolbar-row {
+  justify-content: space-between;
+}
+
+.logout-button {
+  margin-left: auto;
+}
+
