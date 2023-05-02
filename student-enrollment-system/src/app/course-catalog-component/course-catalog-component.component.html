@@ -1,1 +1,13 @@
-<p>course-catalog-component works!</p>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let item of items">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{item['_id']}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ul>
+      <li  *ngFor="let it of item['courses']">{{it['code']}} {{it['name']}}</li>
+    </ul>
+  </mat-expansion-panel>
+</mat-accordion>
+

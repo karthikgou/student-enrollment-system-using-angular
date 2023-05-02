@@ -1,11 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
 const uri = "mongodb+srv://kbcfh:Password123@cluster0.9odtkgv.mongodb.net/web-development-project?retryWrites=true&w=majority";
 
 const courseCatalog = require('./Models/courseCatalog')
 
-
+app.use(cors());
 // Connect to the database
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -14,7 +15,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error(err));
 
 
-// Define the GET route for /courselist
+// Define the GET route for /courseist
 app.get('/courselist', async function(req, res) {
   try {
     // Aggregate the courses collection by term

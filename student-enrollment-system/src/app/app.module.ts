@@ -19,7 +19,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
-
+import { HttpClientModule } from '@angular/common/http';
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,9 @@ import {MatListModule} from '@angular/material/list';
     MatIconModule,
     MatDividerModule,
     FormsModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
+    MatExpansionModule
 
 
   ],
