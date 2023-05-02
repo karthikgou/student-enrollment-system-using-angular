@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CourseCatalogService } from '../services/courseServices';
+import { Course } from '../interfaces/Course';
 
 
 @Component({
@@ -13,19 +15,13 @@ export class CourseCatalogComponentComponent implements OnInit {
 
   items: any[]=[]
 
-  constructor(private http: HttpClient) { }
+  constructor(private courseCatalogService: CourseCatalogService) { }
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:3000/courselist').subscribe(data => {
+    this.courseCatalogService.getCoursesList().subscribe(data => {
 
       this.items=data;
       console.log(this.items);
     });
-
-    // console.log(this.item);
   }
-
-
-
-
 }

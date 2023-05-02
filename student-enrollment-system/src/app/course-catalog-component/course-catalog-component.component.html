@@ -1,13 +1,36 @@
+
 <mat-accordion>
   <mat-expansion-panel *ngFor="let item of items">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{item['_id']}}
+        <h3>Term: {{item['_id']}}</h3>
       </mat-panel-title>
     </mat-expansion-panel-header>
+    <p>List of all courses for this term</p>
     <ul>
       <li  *ngFor="let it of item['courses']">{{it['code']}} {{it['name']}}</li>
     </ul>
   </mat-expansion-panel>
 </mat-accordion>
 
+<!-- <div class="course-container">
+  <div class="course-term" *ngFor="let item of items">
+    <h2>{{item['_id']}}</h2>
+    <div class="course-cards" *ngFor="let it of item['courses']">
+      <div class="course-card">
+        <h3>{{it['code']}} {{it['name']}}</h3>
+        <p>{{it['description']}}</p>
+        <ul>
+          <li>Start Date: {{it['start_date']}}</li>
+          <li>End Date: {{it['end_date']}}</li>
+          <li>Credits: {{it['credits']}}</li>
+          <li>Available: {{it['available']}}</li>
+          <li>Fee: {{it['fee']}}</li>
+          <li>Term: {{it['term']}}</li>
+          <li>Seats Available: {{it['seats_available']}}</li>
+          <li>Total Available: {{it['seats']}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> -->
