@@ -1,1 +1,145 @@
 <p>course-search-component works!</p>
+<!-- <form (ngSubmit)="filter(term.value, courseName.value, courseCode.value, instructorName.value, availableCourses.checked)">
+  <label>
+    Term:
+    <input type="text" #term>
+  </label>
+  <label>
+    Course Name:
+    <input type="text" #courseName>
+  </label>
+  <label>
+    Course Code:
+    <input type="text" #courseCode>
+  </label>
+  <label>
+    Instructor Name:
+    <input type="text" #instructorName>
+  </label>
+  <label>
+    Available Courses:
+    <input type="checkbox" #availableCourses>
+  </label>
+  <button type="submit">Search</button>
+</form>
+
+<ul>
+  <li *ngFor="let course of filteredCourses">
+    {{ course.term }} - {{ course.courseName }} ({{ course.courseCode }}) - {{ course.instructorName }} - {{ course.availableCourses ? 'Available' : 'Not available' }}
+  </li>
+</ul> -->
+<form #searchForm="ngForm" class="search-form" (ngSubmit)="filter(searchForm.value.term, searchForm.value.courseName, searchForm.value.courseCode, searchForm.value.instructorName, searchForm.value.availableCourses)">
+  <label class="search-form__label">
+    Term:
+    <select name="term" ngModel class="search-form__input">
+      <option value="" disabled selected>Select term</option>
+      <option value="fall">Fall</option>
+      <option value="summer">Summer</option>
+      <option value="spring">Spring</option>
+    </select>
+  </label>
+  <label class="search-form__label">
+    Course Name:
+    <input type="text" name="courseName" placeholder="Enter course name" ngModel class="search-form__input">
+  </label>
+  <label class="search-form__label">
+    Course Code:
+    <input type="text" name="courseCode" placeholder="Enter course code" ngModel class="search-form__input">
+  </label>
+  <label class="search-form__label">
+    Instructor Name:
+    <input type="text" name="instructorName" placeholder="Enter instructor name" ngModel class="search-form__input">
+  </label>
+  <label class="search-form__label">
+    Available Courses:
+    <input type="checkbox" name="availableCourses" ngModel class="search-form__input">
+  </label>
+  <button type="submit" class="search-form__button">Search</button>
+</form>
+
+<!--
+<form #searchForm="ngForm" (ngSubmit)="filter(searchForm.value.term, searchForm.value.courseName, searchForm.value.courseCode, searchForm.value.instructorName, searchForm.value.availableCourses)">
+  <label>
+    Term:
+    <select name="term" ngModel>
+      <option value="fall">Fall</option>
+      <option value="summer">Summer</option>
+      <option value="spring">Spring</option>
+    </select>
+  </label>
+  <label>
+    Course Name:
+    <input type="text" name="courseName" ngModel>
+  </label>
+  <label>
+    Course Code:
+    <input type="text" name="courseCode" ngModel>
+  </label>
+  <label>
+    Instructor Name:
+    <input type="text" name="instructorName" ngModel>
+  </label>
+  <label>
+    Available Courses:
+    <input type="checkbox" name="availableCourses" ngModel>
+  </label>
+  <button type="submit">Search</button>
+</form> -->
+
+
+<!-- <div class="course-list">
+  <div class="course-card" *ngFor="let course of items">
+    <div class="course-details">
+      <h3>{{ course.name }}</h3>
+      <p>{{ course.instructor }}</p>
+      <p>{{ course.code }}</p>
+      <p>{{ course.description }}</p>
+      <button class="enroll-button">Enroll Now</button>
+      <button class="enroll-button">View Details</button>
+    </div>
+  </div>
+</div> -->
+
+<div class="filtered-courses-container">
+  <mat-card class="example-card" *ngFor="let course of items">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ course.code }} {{ course.name }}</mat-card-title>
+      <mat-card-subtitle>Instructor: {{ course.instructor }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ course.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Enroll Now</button>
+      <button mat-button>View Details</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<!--
+<ul>
+  <li *ngFor="let course of filteredCourses">
+    {{ course.term }} - {{ course.courseName }} ({{ course.courseCode }}) - {{ course.instructorName }} - {{ course.availableCourses ? 'Available' : 'Not available' }}
+  </li>
+</ul> -->
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Course Name</th>
+      <th>Course Code</th>
+      <th>Instructor Name</th>
+      <th>Available Courses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.term }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.code }}</td>
+      <td>{{ item.instructor }}</td>
+      <td>{{ item.available }}</td>
+    </tr>
+  </tbody>
+</table> -->
