@@ -1,1 +1,35 @@
-<p>course-details-component works!</p>
+<!--
+<h2 *ngFor="let item of items">Course Code:{{item['code']}}</h2>
+<h2 *ngFor="let item of items">Course Name:{{item['name']}}</h2>
+
+<h3 *ngFor="let item of items">Credits: Course Name:{{item['credits']}}</h3>
+
+<p *ngFor="let item of items">Description: {{item['description']}}<p>
+
+
+<p *ngFor="let item of items">Start Date: {{item['start_date']}}<p>
+
+<p *ngFor="let item of items">End Date: {{item['end_date']}}<p>
+
+<p *ngFor="let item of items">Instructor: {{item['instructor']}}<p> -->
+
+
+  <mat-card *ngFor="let item of items">
+    <mat-card-header>
+      <mat-card-title>Course Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h2>Course Code: {{item['code']}}</h2>
+      <h2>Course Name: {{item['name']}}</h2>
+      <h3>Credits: {{item['credits']}}</h3>
+      <p>Description: {{item['description']}}</p>
+      <p>Start Date: {{item['start_date']}}</p>
+      <p>End Date: {{item['end_date']}}</p>
+      <p>Instructor: {{item['instructor']}}</p>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+

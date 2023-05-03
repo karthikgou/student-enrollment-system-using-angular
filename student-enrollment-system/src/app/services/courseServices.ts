@@ -26,5 +26,11 @@ export class CourseCatalogService {
     console.log(data);
 
     return this.http.post<any[]>('http://localhost:3000/filteredCourses', data);
-  }
+}
+
+getCourseDetails(doc_id:string) {
+  const data={id:doc_id};
+  return this.http.post<any[]>('http://localhost:3000/getCourseDetails',data);
+}
+
 }

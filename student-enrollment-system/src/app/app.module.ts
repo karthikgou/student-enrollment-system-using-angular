@@ -36,6 +36,7 @@ import {MatCardModule} from '@angular/material/card';
     CourseDetailsComponentComponent,
     SidebarComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -51,6 +52,7 @@ import {MatCardModule} from '@angular/material/card';
     HttpClientModule,
     MatExpansionModule,
     MatCardModule
+
 
   ],
   providers: [],
