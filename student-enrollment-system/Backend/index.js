@@ -4,9 +4,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const bodyParser=require('body-parser');
-
-
 const uri = "mongodb+srv://kbcfh:Password123@cluster0.9odtkgv.mongodb.net/web-development-project?retryWrites=true&w=majority";
 
 const courseCatalog = require('./Models/courseCatalog')
