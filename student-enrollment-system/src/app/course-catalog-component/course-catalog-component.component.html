@@ -1,6 +1,6 @@
 
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let item of items">
+  <mat-expansion-panel *ngFor="let item of items; let j=index">
     <mat-expansion-panel-header>
       <mat-panel-title>
         <h3>Term: {{item['_id']}}</h3>
@@ -8,7 +8,11 @@
     </mat-expansion-panel-header>
     <p>List of all courses for this term</p>
     <ul>
-      <li  *ngFor="let it of item['courses']">{{it['code']}} {{it['name']}}</li>
+      <li *ngFor="let it of item['courses']" >
+        <a routerLink="/details/{{it['_id']}}" routerLinkActive="active-link">
+        {{it['code']}} {{it['name']}}
+      </a>
+      </li>
     </ul>
   </mat-expansion-panel>
 </mat-accordion>

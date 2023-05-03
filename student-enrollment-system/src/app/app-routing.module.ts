@@ -21,6 +21,9 @@ const routes: Routes = [
   },
   {
     path:"enrolled",component:EnrolledCoursesComponentComponent
+  },
+  {
+    path:"details/:Id",component:CourseDetailsComponentComponent
   }
 ];
 

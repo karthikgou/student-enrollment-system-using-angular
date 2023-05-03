@@ -12,4 +12,9 @@ export class CourseCatalogService {
   getCoursesList() {
     return this.http.get<any[]>('http://localhost:3000/courselist');
   }
+
+  getCourseDetails(doc_id:string) {
+    const data={id:doc_id};
+    return this.http.post<any[]>('http://localhost:3000/getCourseDetails',data);
+  }
 }

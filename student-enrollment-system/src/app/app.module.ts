@@ -21,6 +21,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     EnrolledCoursesComponentComponent,
     CourseDetailsComponentComponent,
     SidebarComponent,
+
 
   ],
   imports: [
@@ -47,7 +49,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     FormsModule,
     MatListModule,
     HttpClientModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCardModule
 
 
   ],
