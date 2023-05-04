@@ -22,6 +22,13 @@ import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +42,8 @@ import {MatCardModule} from '@angular/material/card';
     EnrolledCoursesComponentComponent,
     CourseDetailsComponentComponent,
     SidebarComponent,
+    LoginComponent,
+    SignupComponent
 
 
   ],
@@ -51,7 +60,9 @@ import {MatCardModule} from '@angular/material/card';
     MatListModule,
     HttpClientModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
 
 
   ],

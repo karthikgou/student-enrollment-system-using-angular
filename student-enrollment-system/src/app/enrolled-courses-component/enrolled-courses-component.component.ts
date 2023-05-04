@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseCatalogService } from '../services/courseServices';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-enrolled-courses-component',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnrolledCoursesComponentComponent implements OnInit {
 
-  constructor() { }
+  items: any[] = [];
+
+  constructor(private courseCatalogService:CourseCatalogService, private cookieService: CookieService) { }
 
   ngOnInit(): void {
+    const user_id = this.cookieService.get('userID');
+    this.courseCatalogService.getEnrolledCourses(user_id).subscribe(data => {
+
+      this.items=data;
+      console.log(this.items);
+    });
   }
 
 }

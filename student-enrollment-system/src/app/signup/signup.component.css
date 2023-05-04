@@ -1,0 +1,15 @@
+label {
+  padding-bottom: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.ng-star-inserted {
+  padding-bottom: 5px;
+}
+
+.auth-button{
+  cursor: pointer;
+}

@@ -29,3 +29,7 @@ mat-sidenav-container {
   margin-left: auto;
 }
 
+.logout-button a{
+  text-decoration: none;
+    color: unset;
+}
