@@ -12,7 +12,7 @@ import { AuthGuard } from './AuthGuard';
 
 const routes: Routes = [
   {
-    path:"catalog", component:CourseCatalogComponentComponent
+    path:"catalog", component:CourseCatalogComponentComponent, canActivate: [AuthGuard]
   },
   {
     path: '', redirectTo: 'login', pathMatch: 'full'

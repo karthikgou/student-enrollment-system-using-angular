@@ -13,9 +13,6 @@ mat-card {
   display: flex;
   flex-wrap: wrap;
 }
-
-
-
 .search-form {
   display: flex;
   flex-wrap: wrap;
@@ -25,7 +22,6 @@ mat-card {
   background-color: #f2f2f2;
   border-radius: 10px;
 }
-
 .search-form__label {
   display: flex;
   flex-direction: column;
@@ -33,7 +29,6 @@ mat-card {
   margin: 10px;
   font-size: 18px;
 }
-
 .search-form__input {
   margin-top: 5px;
   padding: 10px;
@@ -63,4 +58,15 @@ mat-card {
 mat-card-actions a {
   text-decoration: none;
   color: unset;
+}
+.cart-message h3{
+  padding: 4rem;
+}
+
+.mat-card-content {
+  margin-left: 15px;
+}
+
+.mat-card-actions{
+  margin-left: 2px;
 }

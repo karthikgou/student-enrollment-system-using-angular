@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CourseCatalogService } from '../services/courseServices';
 import { Course } from '../interfaces/Course';
-
+import { CookieService } from 'ngx-cookie-service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-course-catalog-component',
@@ -11,17 +12,33 @@ import { Course } from '../interfaces/Course';
 })
 export class CourseCatalogComponentComponent implements OnInit {
 
-
-
   items: any[]=[]
 
-  constructor(private courseCatalogService: CourseCatalogService) { }
+  errorMessage: string = ""
+
+
+  constructor(private courseCatalogService: CourseCatalogService, private cookieService: CookieService,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.courseCatalogService.getCoursesList().subscribe(data => {
-
       this.items=data;
-      console.log(this.items);
     });
+  }
+
+  addToCartClick(courseId: string) {
+    const user_id = this.cookieService.get('userID');
+    if(user_id) {
+      this.courseCatalogService.cartAPI(user_id, courseId).subscribe((response) => {
+        this.snackBar.open('Course added to the cart Successfully.', 'Dismiss', {
+          duration: 3000
+        });
+      }, (error) => {
+        console.log(error);
+          this.errorMessage = error.error.message;
+          this.snackBar.open(this.errorMessage, 'Dismiss', {
+            duration: 3000
+          });
+      });
+    }
   }
 }

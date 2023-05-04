@@ -26,12 +26,12 @@ export class CourseCatalogService {
 
     console.log(data);
 
-    return this.http.post<any[]>('http://localhost:3000/filteredCourses', data);
+    return this.http.post<Course[]>('http://localhost:3000/filteredCourses', data);
 }
 
 getCourseDetails(doc_id:string) {
   const data={id:doc_id};
-  return this.http.post<any[]>('http://localhost:3000/getCourseDetails',data);
+  return this.http.post<Course[]>('http://localhost:3000/getCourseDetails',data);
 }
 
 userRegistration(fullname: string, email: string, password: string) {
@@ -55,14 +55,14 @@ cartAPI(user_id: string, course_id:string) {
     userId: user_id,
     courseId: course_id
   };
-  return this.http.post<any[]>('http://localhost:3000/api/addToCart',data);
+  return this.http.post<Course[]>('http://localhost:3000/api/addToCart',data);
 }
 
 getSavedCourses(user_id: string) {
   const data={
     userId: user_id
   };
-  return this.http.post<any[]>('http://localhost:3000/api/getCart',data);
+  return this.http.post<Course[]>('http://localhost:3000/api/getCart',data);
 }
 
 enrollCourseAPI(user_id: string, course_id:string) {
@@ -70,14 +70,22 @@ enrollCourseAPI(user_id: string, course_id:string) {
     userId: user_id,
     courseId: course_id
   };
-  return this.http.post<any[]>('http://localhost:3000/api/enroll',data);
+  return this.http.post<Course[]>('http://localhost:3000/api/enroll',data);
 }
 
 getEnrolledCourses(user_id: string) {
   const data={
     userId: user_id
   };
-  return this.http.post<any[]>('http://localhost:3000/api/getEnrolledCourses',data);
+  return this.http.post<Course[]>('http://localhost:3000/api/getEnrolledCourses',data);
+}
+
+removeCourseFromCartAPI(user_id: string, course_id:string) {
+  const data={
+    userId: user_id,
+    courseId: course_id
+  };
+  return this.http.post<Course[]>('http://localhost:3000/api/cart/remove',data);
 }
 
 }

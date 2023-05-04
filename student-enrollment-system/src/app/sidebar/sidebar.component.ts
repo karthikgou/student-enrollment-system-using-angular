@@ -26,10 +26,14 @@ export class SidebarComponent implements OnInit {
     //remove user cookie
 
     this.cookieService.delete('userID');
-    this.router.navigate(['/catalog']).then(() => {
+    this.router.navigate(['/login']).then(() => {
       window.location.reload();
     });
 
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/catalog'])
   }
 
 }

@@ -37,12 +37,7 @@ export class LoginComponent {
       });
     }, (error) => {
       console.log(error);
-      if (error.status === 401) {
         this.errorMessage = error.error.message;
-        console.log(this.errorMessage);
-      } else {
-        // Other error, handle appropriately
-      }
     });
   }
 }

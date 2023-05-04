@@ -71,7 +71,6 @@ app.post('/filteredCourses', function(req, res) {
 
   courseCatalog.find(query)
   .then((result) => {
-    console.log(result);
     res.send(result);
   })
   .catch((err) => {
@@ -93,7 +92,6 @@ app.post('/getCourseDetails', function(req, res) {
   }
   courseCatalog.find(query)
   .then((result) => {
-    console.log(result);
     res.send(result);
   })
   .catch((err) => {
@@ -152,32 +150,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 
-// // add a course to a user's cart
-// async function addToCart(userId, courseId) {
-//   try {
-//     // find the user by id
-//     const user = await User.findById(userId);
-//     // find the course by id
-//     const course = await courseCatalog.findById(courseId);
-//     // add the course to the user's cart
-//     user.cart.push({
-//       course_id: course._id,
-//       course_code: course.code,
-//       course_name: course.name,
-//       instructor: course.instructor,
-//       start_date: course.start_date,
-//       end_date: course.end_date,
-//       fee: course.fee
-//     });
-//     // save the user
-//     await user.save();
-//     console.log(`Course ${course.code} added to cart for user ${user.fullname}`);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
 // Add a course to the user's cart
-
 app.post('/api/addToCart', async (req, res) => {
   const { userId, courseId } = req.body;
   try {
@@ -247,14 +220,32 @@ app.post('/api/enroll', async (req, res) => {
       return res.status(404).json({ message: 'Course not found in cart' });
     }
 
+    // Update the course's seats available
+    const course = await courseCatalog.findById(courseId);
+
+    if (!course) {
+      // The course doesn't exist
+      return res.status(404).json({ message: 'Course not found' });
+    }
+
+    if (course.seats_available === 0) {
+      // No seats available for this course
+      return res.status(404).json({ message: 'No seats available for this course' });
+    }
+
+
     // Remove the course from the user's cart
     user.cart.pull(courseInCart._id);
 
     // Add the course to the user's enrolled courses
     user.enrolledCourses.push(courseInCart);
 
-    // Save the user's changes
+    
+    course.seats_available--;
+
+    // Save the user and course changes
     await user.save();
+    await course.save();
 
     // Return a success message
     return res.status(200).json({ message: 'Course successfully enrolled' });
@@ -264,6 +255,39 @@ app.post('/api/enroll', async (req, res) => {
     return res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+// POST route for removing a course from the cart
+app.post('/api/cart/remove', async (req, res) => {
+  try {
+    const userId = req.body.userId;
+    const courseId = req.body.courseId;
+
+    // Find the user by ID and populate the cart
+    const user = await User.findById(userId).populate('cart');
+
+    // Check if the user has the course in their cart
+    const courseInCart = user.cart.find(course => course._id == courseId);
+
+    if (!courseInCart) {
+      // The course is not in the user's cart
+      return res.status(404).json({ message: 'Course not found in cart' });
+    }
+
+    // Remove the course from the user's cart
+    user.cart.pull(courseInCart._id);
+
+    // Save the user's changes
+    await user.save();
+
+    // Return a success message
+    return res.status(200).json({ message: 'Course successfully removed from cart' });
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 
 app.post('/api/getEnrolledCourses', async (req, res) => {
   const { userId} = req.body;
@@ -285,3 +309,5 @@ app.post('/api/getEnrolledCourses', async (req, res) => {
 app.listen(3000, function() {
   console.log('Server listening on port 3000');
 });
+
+module.exports = app;

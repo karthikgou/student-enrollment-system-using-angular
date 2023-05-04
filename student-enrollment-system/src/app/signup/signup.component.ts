@@ -49,13 +49,7 @@ export class SignupComponent implements OnInit {
       });
 
     }, (error) => {
-      console.log(error);
-      if (error.status === 409) {
         this.errorMessage = error.error.message;
-        console.log(this.errorMessage);
-      } else {
-        // Other error, handle appropriately
-      }
     });
   }
 

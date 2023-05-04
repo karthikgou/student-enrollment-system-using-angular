@@ -41,4 +41,4 @@ student-enrollment-system/testem.log
 student-enrollment-system/.DS_Store
 student-enrollment-system/Thumbs.db
 
-student-enrollment-system/Backend/node_modules/
+Backend/node_modules/

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseCatalogService } from '../services/courseServices';
 import { CookieService } from 'ngx-cookie-service';
+import { Course } from '../interfaces/Course';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class EnrolledCoursesComponentComponent implements OnInit {
 
-  items: any[] = [];
+  items: Course[] = [];
 
   constructor(private courseCatalogService:CourseCatalogService, private cookieService: CookieService) { }
 

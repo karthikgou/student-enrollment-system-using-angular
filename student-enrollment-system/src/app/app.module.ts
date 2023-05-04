@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
 import { FooterComponentComponent } from './footer-component/footer-component.component';
-import { ProfileComponentComponent } from './profile-component/profile-component.component';
 import { CourseCatalogComponentComponent } from './course-catalog-component/course-catalog-component.component';
 import { CourseSearchComponentComponent } from './course-search-component/course-search-component.component';
 import { SavedCoursesComponentComponent } from './saved-courses-component/saved-courses-component.component';
@@ -35,7 +34,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppComponent,
     HeaderComponentComponent,
     FooterComponentComponent,
-    ProfileComponentComponent,
     CourseCatalogComponentComponent,
     CourseSearchComponentComponent,
     SavedCoursesComponentComponent,
@@ -44,8 +42,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SidebarComponent,
     LoginComponent,
     SignupComponent
-
-
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseCatalogService } from '../services/courseServices';
 import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Course } from '../interfaces/Course';
 
 @Component({
   selector: 'app-saved-courses-component',
@@ -10,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SavedCoursesComponentComponent implements OnInit {
 
-  items: any[] = [];
+  items: Course[] = [];
 
   constructor(private courseCatalogService:CourseCatalogService, private cookieService: CookieService,  private snackBar: MatSnackBar) { }
 
@@ -33,6 +34,26 @@ export class SavedCoursesComponentComponent implements OnInit {
         window.location.reload();
       }, (error) => {
         console.log(error);
+        if (error.status !== 200) {
+          this.snackBar.open(error.error.message, 'Dismiss', {
+            duration: 3000
+          });
+        } else {
+          // Other error, handle appropriately
+        }
+      });
+    }
+  }
+
+  removeFromCart(course_id:string) {
+    const user_id = this.cookieService.get('userID');
+    if(user_id) {
+      this.courseCatalogService.removeCourseFromCartAPI(user_id, course_id).subscribe((response) => {
+        this.snackBar.open('Removed course from the cart Successfully.', 'Dismiss', {
+          duration: 3000
+        });
+        window.location.reload();
+      }, (error) => {
         if (error.status !== 200) {
           this.snackBar.open(error.error.message, 'Dismiss', {
             duration: 3000
