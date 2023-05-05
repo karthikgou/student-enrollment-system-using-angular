@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CourseCatalogService } from '../services/courseServices';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { User } from '../interfaces/User';
 import { Location } from '@angular/common';
 
 

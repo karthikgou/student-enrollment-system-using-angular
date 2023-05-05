@@ -22,18 +22,4 @@ export class SidebarComponent implements OnInit {
 
   opened=true;
 
-  logoutFunctionality() {
-    //remove user cookie
-
-    this.cookieService.delete('userID');
-    this.router.navigate(['/login']).then(() => {
-      window.location.reload();
-    });
-
-  }
-
-  navigateToHome() {
-    this.router.navigate(['/catalog'])
-  }
-
 }

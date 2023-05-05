@@ -1,1 +1,19 @@
-<p>header-component works!</p>
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="toolbar-row">
+    <!-- <button mat-button>
+      <mat-icon>menu</mat-icon>
+    </button> -->
+    <button mat-button (click)="navigateToHome()">
+      <mat-icon>home</mat-icon>
+      Home
+    </button>
+    <button mat-button class="logout-button" *ngIf="isAuthenticated" (click)="logoutFunctionality()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+    <button mat-button class="logout-button" *ngIf="!isAuthenticated" (click)="logoutFunctionality()">
+      <a class="auth-button" href="/login"><mat-icon>login</mat-icon>
+      Log in</a>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

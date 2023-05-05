@@ -25,11 +25,3 @@ mat-sidenav-container {
   justify-content: space-between;
 }
 
-.logout-button {
-  margin-left: auto;
-}
-
-.logout-button a{
-  text-decoration: none;
-    color: unset;
-}

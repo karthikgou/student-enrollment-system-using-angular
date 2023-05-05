@@ -74,7 +74,6 @@ app.post('/filteredCourses', function(req, res) {
     res.send(result);
   })
   .catch((err) => {
-    console.error(err);
     res.status(500).send(err);
   });
 });
@@ -83,7 +82,6 @@ app.post('/filteredCourses', function(req, res) {
 app.post('/getCourseDetails', function(req, res) {
 
   const id = req.body.id;
-
 
   const query = {};
 
@@ -95,7 +93,6 @@ app.post('/getCourseDetails', function(req, res) {
     res.send(result);
   })
   .catch((err) => {
-    console.error(err);
     res.status(500).send(err);
   });
 
@@ -105,8 +102,6 @@ app.post('/api/signup', async (req, res) => {
   const { fullname, email, password } = req.body;
 
   const user = await User.findOne({email: email}).exec();
-
-  console.log(user);
 
   if(user) {
     // User already exists
@@ -124,7 +119,6 @@ app.post('/api/signup', async (req, res) => {
       res.status(200).send(result);
     })
     .catch((err) => {
-      console.error(err);
       res.status(500).send(err);
     });
 });
@@ -302,8 +296,6 @@ app.post('/api/getEnrolledCourses', async (req, res) => {
       console.error(error);
     }
 });
-
-
 
 // Start the server
 app.listen(3000, function() {
