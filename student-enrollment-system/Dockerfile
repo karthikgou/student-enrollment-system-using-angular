@@ -16,7 +16,7 @@ RUN npm install --force
 COPY . .
 
 # Build the Angular application
-RUN npm run build --prod
+# RUN npm run build --prod
 
 # Expose port 4200
 EXPOSE 4200
