@@ -1,1 +1,52 @@
-<p>course-search-component works!</p>
+<form #searchForm="ngForm" class="search-form" (ngSubmit)="filter(searchForm.value.term, searchForm.value.courseName, searchForm.value.courseCode, searchForm.value.instructorName, searchForm.value.availableCourses)">
+  <label class="search-form__label">
+    Term:
+    <select name="term" ngModel class="search-form__input">
+      <option value="" disabled selected>Select term</option>
+      <option value="fall">Fall</option>
+      <option value="summer">Summer</option>
+      <option value="spring">Spring</option>
+    </select>
+  </label>
+  <label class="search-form__label">
+    Course Name:
+    <input type="text" name="courseName" placeholder="Enter course name" ngModel class="search-form__input">
+  </label>
+  <label class="search-form__label">
+    Course Code:
+    <input type="text" name="courseCode" placeholder="Enter course code" ngModel class="search-form__input">
+  </label>
+  <label class="search-form__label">
+    Instructor Name:
+    <input type="text" name="instructorName" placeholder="Enter instructor name" ngModel class="search-form__input">
+  </label>
+  <label class="search-form__label">
+    Available Courses:
+    <input type="checkbox" name="availableCourses" ngModel class="search-form__input">
+  </label>
+  <button type="submit" class="search-form__button">Search</button>
+</form>
+
+<div class="filtered-courses-container" *ngIf="items.length > 0">
+  <mat-card class="example-card" *ngFor="let course of items">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ course.code }} {{ course.name }}</mat-card-title>
+      <mat-card-subtitle>Instructor: {{ course.instructor }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ course.description }}</p>
+      <p><b>Term: </b>{{ course.term }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a routerLink="/details/{{course['_id']}}" routerLinkActive="active-link"><button mat-button>
+        View Course Details
+      </button></a>
+      <button mat-button (click)="addToCartClick(course['_id'])">Add to Cart</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div *ngIf="items.length < 1" class="cart-message">
+  <h3><b>Zero results found for your search. Please try with different search combination.</b></h3>
+</div>

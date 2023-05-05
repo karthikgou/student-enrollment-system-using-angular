@@ -1,33 +1,46 @@
-<!--
-<h2 *ngFor="let item of items">Course Code:{{item['code']}}</h2>
-<h2 *ngFor="let item of items">Course Name:{{item['name']}}</h2>
+  <div class="course-details-container" *ngFor="let course of items">
+    <h1 class="course-title">{{ course.name }}</h1>
+    <div class="course-info-container">
+      <div class="course-description-container">
+        <h2 class="instructor-name">Instructor: {{ course.instructor }}</h2>
+        <p class="course-description">{{ course.description }}</p>
+        <div class="course-meta-container">
+          <div class="course-meta-item">
+            <h3>Start Date</h3>
+            <p>{{ course.start_date | date: 'MMM d, y' }}</p>
+          </div>
+          <div class="course-meta-item">
+            <h3>End Date</h3>
+            <p>{{ course.end_date | date: 'MMM d, y' }}</p>
+          </div>
+          <div class="course-meta-item">
+            <h3>Credits</h3>
+            <p>{{ course.credits }}</p>
+          </div>
+          <div class="course-meta-item">
+            <h3>Prerequisites</h3>
+            <p>{{ course.prerequisites.join(', ') }}</p>
+          </div>
+          <div class="course-meta-item">
+            <h3>Fee</h3>
+            <p>{{ course.fee | currency:'USD':'symbol' }}</p>
+          </div>
+          <div class="course-meta-item">
+            <h3>Term</h3>
+            <p>{{ course.term | titlecase }}</p>
+          </div>
+          <div class="course-meta-item">
+            <h3>Available Seats</h3>
+            <p>{{ course.seats_available }} / {{ course.seats }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="course-actions-container">
+      <button mat-button (click)="addToCartClick(course['_id'])" [disabled]="!course.available">Add to Cart</button>
+    </div>
+  </div>
 
-<h3 *ngFor="let item of items">Credits: Course Name:{{item['credits']}}</h3>
-
-<p *ngFor="let item of items">Description: {{item['description']}}<p>
-
-
-<p *ngFor="let item of items">Start Date: {{item['start_date']}}<p>
-
-<p *ngFor="let item of items">End Date: {{item['end_date']}}<p>
-
-<p *ngFor="let item of items">Instructor: {{item['instructor']}}<p> -->
-
-
-  <mat-card *ngFor="let item of items">
-    <mat-card-header>
-      <mat-card-title>Course Details</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <h2>Course Code: {{item['code']}}</h2>
-      <h2>Course Name: {{item['name']}}</h2>
-      <h3>Credits: {{item['credits']}}</h3>
-      <p>Description: {{item['description']}}</p>
-      <p>Start Date: {{item['start_date']}}</p>
-      <p>End Date: {{item['end_date']}}</p>
-      <p>Instructor: {{item['instructor']}}</p>
-    </mat-card-content>
-  </mat-card>
 
 
 

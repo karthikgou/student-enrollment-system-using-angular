@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
 import { FooterComponentComponent } from './footer-component/footer-component.component';
-import { ProfileComponentComponent } from './profile-component/profile-component.component';
 import { CourseCatalogComponentComponent } from './course-catalog-component/course-catalog-component.component';
 import { CourseSearchComponentComponent } from './course-search-component/course-search-component.component';
 import { SavedCoursesComponentComponent } from './saved-courses-component/saved-courses-component.component';
@@ -22,20 +21,27 @@ import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponentComponent,
     FooterComponentComponent,
-    ProfileComponentComponent,
     CourseCatalogComponentComponent,
     CourseSearchComponentComponent,
     SavedCoursesComponentComponent,
     EnrolledCoursesComponentComponent,
     CourseDetailsComponentComponent,
     SidebarComponent,
-
-
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,9 @@ import {MatCardModule} from '@angular/material/card';
     MatListModule,
     HttpClientModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
 
 
   ],

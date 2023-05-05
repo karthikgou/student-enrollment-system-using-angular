@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
+    "start:server": "nodemon server.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -20,6 +21,10 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "bootstrap": "^5.2.3",
+    "ngx-cookie-service": "^16.0.0",
+    "nodemon": "^2.0.22",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -1,1 +1,29 @@
-<p>saved-courses-component works!</p>
+ <div class="saved-courses-container"  *ngIf="items.length > 0">
+ <h1>Here are the courses added to cart</h1>
+  <div class="course-catalog-term-block">
+    <div class="filtered-courses-container course-catalog-term-block">
+      <mat-card class="example-card" *ngFor="let course of items">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ course.code }} {{ course.name }}</mat-card-title>
+          <mat-card-subtitle><b>Instructor: {{ course.instructor }}</b></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ course.description }}</p>
+          <p><b>Term: </b>{{ course.term }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a routerLink="/details/{{course['_id']}}" routerLinkActive="active-link"><button mat-button>
+            View Course Details
+          </button></a>
+          <button mat-button (click)="removeFromCart(course['_id'])">Remove from Cart</button>
+          <button mat-button (click)="enrollCourses(course['_id'])">Enroll</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="items.length < 1" class="cart-message">
+  <h3><b>Currently, you don't have any courses added in your cart.</b></h3>
+</div>

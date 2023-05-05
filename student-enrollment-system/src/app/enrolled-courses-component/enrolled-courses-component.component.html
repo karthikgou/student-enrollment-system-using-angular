@@ -1,1 +1,23 @@
-<p>enrolled-courses-component works!</p>
+<div class="enrolled-courses-container" *ngIf="items.length >0">
+  <h1>Here are the enrolled courses.</h1>
+   <div class="course-catalog-term-block">
+     <div class="filtered-courses-container course-catalog-term-block">
+       <mat-card class="example-card" *ngFor="let course of items">
+         <mat-card-header>
+           <div mat-card-avatar class="example-header-image"></div>
+           <mat-card-title>{{ course.code }} {{ course.name }}</mat-card-title>
+           <mat-card-subtitle><b>Instructor: {{ course.instructor }}</b></mat-card-subtitle>
+         </mat-card-header>
+         <mat-card-content>
+           <p>{{ course.description }}</p>
+           <p><b>Term: </b>{{ course.term }}</p>
+         </mat-card-content>
+         </mat-card>
+     </div>
+   </div>
+ </div>
+
+ <div *ngIf="items.length < 1" class="cart-message">
+  <h3><b>You didn't enroll in any courses yet! Please enroll.</b></h3>
+</div>
+

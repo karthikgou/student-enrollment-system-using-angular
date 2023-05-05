@@ -1,0 +1,17 @@
+footer {
+  background-color: #3f51b5;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline-block;
+  margin-right: 10px;
+}

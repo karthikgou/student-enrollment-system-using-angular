@@ -5,25 +5,38 @@ import { CourseSearchComponentComponent } from './course-search-component/course
 import { SavedCoursesComponentComponent } from './saved-courses-component/saved-courses-component.component';
 import { EnrolledCoursesComponentComponent } from './enrolled-courses-component/enrolled-courses-component.component';
 import { CourseDetailsComponentComponent } from './course-details-component/course-details-component.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { AuthGuard } from './AuthGuard';
+
 
 const routes: Routes = [
   {
-    path:"catalog", component:CourseCatalogComponentComponent
+    path:"catalog", component:CourseCatalogComponentComponent, canActivate: [AuthGuard]
   },
   {
-      path:"details",component:CourseDetailsComponentComponent
+    path: '', redirectTo: 'login', pathMatch: 'full'
   },
   {
-    path:"search",component:CourseSearchComponentComponent
+    path: 'login', component: LoginComponent
   },
   {
-    path:"cart", component:SavedCoursesComponentComponent
+    path: 'signup', component: SignupComponent
   },
   {
-    path:"enrolled",component:EnrolledCoursesComponentComponent
+      path:"details",component:CourseDetailsComponentComponent, canActivate: [AuthGuard]
   },
   {
-    path:"details/:Id",component:CourseDetailsComponentComponent
+    path:"search",component:CourseSearchComponentComponent, canActivate: [AuthGuard]
+  },
+  {
+    path:"cart", component:SavedCoursesComponentComponent, canActivate: [AuthGuard]
+  },
+  {
+    path:"enrolled",component:EnrolledCoursesComponentComponent, canActivate: [AuthGuard]
+  },
+  {
+    path:"details/:Id",component:CourseDetailsComponentComponent, canActivate: [AuthGuard]
   }
 ];
 

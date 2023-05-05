@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  backend_node_app:
+    container_name: backend_node_app
+    build:
+      context: ./Backend
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+
+  frontend_angular_app:
+    container_name: frontend_angular_app
+    build:
+      context: ./student-enrollment-system
+    ports:
+      - "0.0.0.0:4200:4200"
+    networks:
+      - my-network
+
+networks:
+  my-network:
