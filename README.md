@@ -1,27 +1,20 @@
 # StudentEnrollmentSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+## How to start application:
 
-## Development server
+1. Clone the repository by running `git clone https://github.com/karthikgou/student-enrollment-system-using-angular.git`
+2. Navigate to the cloned directory by running `cd student-enrollment-system-using-angular/`
+3. Start the Docker container by running `docker compose up --build`
+4. Access the application at `localhost:4200`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Usage
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- On the login page, sign up by providing necessary information. Then, log in with your credentials.
+- On the home page, you can access the course catalog, search courses, cart, and enrolled courses.
+- In the course catalog, you can view the course details for fall, spring, and summer semesters.
+- In search courses, you can search for courses by term, course name, course code, or professor name.
+- For a selected course, you can view its information and add it to the cart in both the course catalog and search courses.
+- In the cart, you can view saved courses and enroll in them. Once enrolled, the course will be removed from the cart and added to enrolled courses.
+- In enrolled courses, you can view the final list of enrolled courses.
+- Clicking on the home button will redirect you to the course catalog.
+- To log out, click the logout button.
